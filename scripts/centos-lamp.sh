@@ -14,7 +14,7 @@ service httpd stop
 
 # Create html symlink to host
 rm -rf /var/www/html
-ln -s /vargrant /var/www/html
+ln -s /vagrant /var/www/html
 
 # start apache
 service httpd start
@@ -32,6 +32,8 @@ service mysqld start
 mysql -u root -e "SHOW DATABASES";
 
 #Download starter content
-
+cd /vagrant
+sudo -u vagrant wget -q https://raw.githubusercontent.com/krislyon/vagrant/master/files/index.html
+sudo -u vagrant wget -q https://raw.githubusercontent.com/krislyon/vagrant/master/files/info.php
 
 service httpd restart
